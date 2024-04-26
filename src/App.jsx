@@ -7,10 +7,17 @@ import Header from './Components/Header/Header'
 import PropTypes from 'prop-types';
 function App() {
   const [bookmarks, setBookmarks] = useState([])
+  const [readingTimes, setReadingTimes] = useState([])
+
 
   const handleClick = blog => {
     const newBookmarks = [...bookmarks, blog]
     setBookmarks(newBookmarks)
+  }
+
+  const handleReading = time => {
+    const newtimearray = [...readingTimes, time]
+    setReadingTimes(newtimearray)
   }
   return (
     <>
@@ -18,8 +25,13 @@ function App() {
         <Header></Header>
         <hr />
         <div className='md:flex gap-7'>
-          <Blogs handleClick={handleClick}></Blogs>
-          <Carts bookmarks={bookmarks}></Carts>
+          <Blogs handleClick={handleClick}
+            handleReading={handleReading}
+          ></Blogs>
+          <Carts
+            bookmarks={bookmarks}
+            readingTimes={readingTimes}
+          ></Carts>
         </div>
       </div>
     </>
@@ -28,6 +40,7 @@ function App() {
 
 
 App.propTypes = {
-  handleClick: PropTypes.func
+  handleClick: PropTypes.func,
+  handleReading: PropTypes.func
 }
 export default App
