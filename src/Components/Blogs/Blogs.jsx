@@ -1,8 +1,9 @@
 
 import { useState } from "react";
 import { useEffect } from "react";
-
-const Blogs = () => {
+import Blog from "./Blog";
+import PropTypes from 'prop-types';
+const Blogs = ({ handleClick }) => {
 
     const [blogs, setBlogs] = useState([])
 
@@ -14,14 +15,19 @@ const Blogs = () => {
 
     console.log(blogs);
     return (
-        <div className="w-2/3">
-            <h1 className="text-2xl font-semibold">Blogs: {blogs.length}</h1>
+        <div className="md:w-2/3">
+            <h1 className="text-2xl font-semibold my-3">Blogs: {blogs.length}</h1>
 
-            <div className="my-3">
-
+            <div >
+                {
+                    blogs.map(blog => <Blog key={blog.id} blog={blog} handleClick={handleClick}></Blog>)
+                }
             </div>
         </div>
     );
 };
 
+Blogs.propTypes = {
+    handleClick: PropTypes.func
+}
 export default Blogs;
