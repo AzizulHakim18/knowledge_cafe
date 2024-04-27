@@ -11,6 +11,7 @@ const Cart = ({ bookmark }) => {
 };
 
 Cart.propTypes = {
-    bookmark: PropTypes.object
+    bookmark: PropTypes.object,
+    readingTime: PropTypes.number
 }
 export default Cart;

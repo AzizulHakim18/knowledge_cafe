@@ -7,18 +7,18 @@ import Header from './Components/Header/Header'
 import PropTypes from 'prop-types';
 function App() {
   const [bookmarks, setBookmarks] = useState([])
-  const [readingTimes, setReadingTimes] = useState([])
-
+  const [readingTime, setReadingTime] = useState(0)
 
   const handleClick = blog => {
     const newBookmarks = [...bookmarks, blog]
     setBookmarks(newBookmarks)
   }
-
-  const handleReading = time => {
-    const newtimearray = [...readingTimes, time]
-    setReadingTimes(newtimearray)
+  const handleMarkAsRead = time => {
+    const newTime = readingTime + time;
+    setReadingTime(newTime)
+    console.log(newTime);
   }
+
   return (
     <>
       <div className='w-10/12 mx-auto'>
@@ -26,11 +26,10 @@ function App() {
         <hr />
         <div className='md:flex gap-7'>
           <Blogs handleClick={handleClick}
-            handleReading={handleReading}
+            handleMarkAsRead={handleMarkAsRead}
           ></Blogs>
           <Carts
             bookmarks={bookmarks}
-            readingTimes={readingTimes}
           ></Carts>
         </div>
       </div>
@@ -41,6 +40,6 @@ function App() {
 
 App.propTypes = {
   handleClick: PropTypes.func,
-  handleReading: PropTypes.func
+  handleMarkAsRead: PropTypes.func
 }
 export default App

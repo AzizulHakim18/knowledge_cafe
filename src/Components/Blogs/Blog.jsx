@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-const Blog = ({ blog, handleClick, handleReading }) => {
+const Blog = ({ blog, handleMarkAsRead, handleClick }) => {
 
     // console.log(blog);
 
@@ -15,7 +15,7 @@ const Blog = ({ blog, handleClick, handleReading }) => {
             </div>
             <h1 className='text-xl font-semibold text-emerald-400'>{title}</h1>
             <p className=' text-gray-400'>{description}</p>
-            <button className='text-blue-600 visited:text-purple-600 ' onClick={() => handleReading(blog)}>Mark as read</button>
+            <button className='text-blue-600 visited:text-purple-600 ' onClick={() => handleMarkAsRead(reading_time)}>Mark as read</button>
             <p>{hashtags.map((hastag, id) => <p key={id}>#{hastag}</p>)}</p>
         </div>
     );
@@ -25,6 +25,6 @@ const Blog = ({ blog, handleClick, handleReading }) => {
 Blog.propTypes = {
     blog: PropTypes.object.isRequired,
     handleClick: PropTypes.func,
-    handleReading: PropTypes.func,
+    handleMarkAsRead: PropTypes.func,
 }
 export default Blog;
