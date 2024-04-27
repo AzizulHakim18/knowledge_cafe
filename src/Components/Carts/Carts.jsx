@@ -5,8 +5,8 @@ const Carts = ({ bookmarks, readingTime }) => {
 
 
     return (
-        <div className="md:w-1/3">
-            <h1>
+        <div className="md:w-1/3 fixed top-15 right-0">
+            <h1 className='text-2xl font-semibold text-red-600'>
                 Totall Reading Time {readingTime} min
             </h1>
 

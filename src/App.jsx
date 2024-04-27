@@ -30,6 +30,7 @@ function App() {
           ></Blogs>
           <Carts
             bookmarks={bookmarks}
+            readingTime={readingTime}
           ></Carts>
         </div>
       </div>
@@ -40,6 +41,7 @@ function App() {
 
 App.propTypes = {
   handleClick: PropTypes.func,
-  handleMarkAsRead: PropTypes.func
+  handleMarkAsRead: PropTypes.func,
+  readingTime: PropTypes.number
 }
 export default App
